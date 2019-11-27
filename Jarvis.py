@@ -36,8 +36,8 @@ def sendEmail(to , command):
     server = smtplib.SMTP('smtp.gmail.com',587)
     server.ehlo()
     server.starttls()
-    server.login('17211a05a1@bvrit.ac.in','holmes007')
-    server.sendmail('17211a05a1@bvrit.ac.in',to,content)
+    server.login('sender_email','pwd')
+    server.sendmail('sender_email',to,content)
     server.close()
 
 def takeCommand():
@@ -62,7 +62,6 @@ def takeCommand():
 
 
 if __name__ == "__main__":
-    #speak("HARISH IS A GOOD BOY")
     wishMe()
     while True:
          query = takeCommand().lower()
@@ -100,7 +99,7 @@ if __name__ == "__main__":
               try:
                   speak("Sir , What should I say?")
                   content = takeCommand()
-                  to = "rianhsirah04@gmail.com"
+                  to = "recipient_mail"
                   content = content.replace("say that",'')
                   sendEmail(to , content)
                   speak("Email has been sent!")
